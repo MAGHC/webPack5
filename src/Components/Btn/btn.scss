@@ -1,0 +1,10 @@
+$ft-size: 40px;
+$background: black;
+
+.btn {
+  font-size: $ft-size;
+  color: white;
+  padding: 8px 12px;
+  outline: none;
+  background-color: $background;
+}
