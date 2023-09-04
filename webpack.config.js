@@ -2,6 +2,7 @@ const path = require('path');
 
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
   output: {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: 'dist/',
+    publicPath: '',
     clean: true,
   },
   mode: 'none',
@@ -47,12 +48,23 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.hbs$/,
+        use: ['handlebars-loader'],
+      },
     ],
   },
   plugins: [
     new TerserPlugin(),
     new MiniCssExtractPlugin({
       filename: 'styles[contenthash].css',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Hello html 타이틀2222',
+      template: 'src/index.hbs',
+      // filename: 'subfoleder/custom_filename.html',
+
+      description: '메타태크 설명222',
     }),
 
     // new CleanWebpackPlugin({
