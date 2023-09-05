@@ -5,7 +5,7 @@ class Heading {
     const h1 = document.createElement('h1');
     const $body = document.querySelector('body');
 
-    h1.innerHTML = '테스트';
+    h1.innerHTML = '바꿈';
 
     $body.appendChild(h1);
   }
