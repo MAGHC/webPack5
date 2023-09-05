@@ -14,3 +14,11 @@ const heading = new Heading();
 heading.render();
 
 let test = 'is change ? ';
+
+if (process.env.NODE_ENV === 'production') {
+  console.log('Production mode');
+} else if (process.env.NODE_ENV === 'production') {
+  console.log('development mode');
+}
+
+heading.methodTahtDoesNotSexist();
