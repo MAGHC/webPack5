@@ -6,9 +6,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    'hello-world': './src/hello2.js',
+    kiwi: './src/kiwi.js',
+  },
   output: {
-    filename: 'bundle.[contenthash].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '',
     clean: true,
@@ -58,14 +61,30 @@ module.exports = {
   plugins: [
     new TerserPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'styles[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
+      filename: 'hellowrold-1.html',
+      // 여러개 만들때 파일네임 사용해서 지정
       title: 'Hello html 타이틀2222',
-      template: 'src/index.hbs',
+      chunks: ['hello-world'],
+      template: 'src/page-template.hbs',
       // filename: 'subfoleder/custom_filename.html',
 
       description: '메타태크 설명222',
+
+      // minify를 false 하면 html 파일이 쫙 크게 나옴
+      minify: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'kiwi.html',
+      title: 'kiwi',
+      chunks: ['kiwi'],
+      // chunk도 여러개쓸때 그리고 엔트리포인트대로
+      template: 'src/page-template.hbs',
+      description: '키위',
+
+      minify: false,
     }),
 
     // new CleanWebpackPlugin({
