@@ -1,6 +1,7 @@
 import Btn from './Components/Btn/btn.js';
 import helloWorld from './hello-world.js';
 import addImg from './img.js';
+import _ from 'lodash';
 
 import Heading from './Components/heading/heading.js';
 
@@ -11,7 +12,7 @@ addImg();
 
 const heading = new Heading();
 
-heading.render();
+heading.render(_.upperFirst('hi 월드'));
 
 let test = 'is change ? ';
 
