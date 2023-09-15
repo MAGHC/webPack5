@@ -1,4 +1,5 @@
 import Heading from './Components/heading/heading.js';
+import React from 'react';
 
 import KiwiImage from './Components/kiwi-image/kiwi-image.js';
 

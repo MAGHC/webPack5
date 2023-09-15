@@ -21,6 +21,8 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      minSize: 3000,
+      // min size설정으로 커스텀 이걸로 리액트도 추출됨
     },
   },
   module: {
